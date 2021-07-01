@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.BMIFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/bmi1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/bgbmi"
+            android:src="@drawable/bmi"/>
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:id="@+id/textcao"
+            android:layout_below="@+id/bgbmi"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/icheigh"
+            android:inputType="number"
+            android:hint="Nhập chiều cao (cm)" />
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:id="@+id/textnang"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/textcao"
+            android:layout_centerHorizontal="true"
+            android:inputType="number"
+            android:drawableLeft="@drawable/icweigh"
+            android:hint="Nhập cân nặng (kg)"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:id="@+id/btnreset"
+            android:layout_below="@+id/textnang"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="47dp"
+            android:text="Reset"/>
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/btntinhtoan"
+            android:layout_below="@id/textnang"
+            android:layout_toRightOf="@id/btnreset"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/Black"
+            android:text="Tính toán"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/lblketqua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kết quả của bạn : "
+            android:layout_below="@id/btnreset"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="65dp"
+            android:textSize="20sp"
+            android:textStyle="italic"/>
+        <TextView
+            android:id="@+id/txtketqua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/lblketqua"
+            android:layout_below="@id/btnreset"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progressBar"-->
+<!--            style="?android:attr/progressBarStyleHorizontal"-->
+<!--            android:layout_width="400dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:max="50"-->
+<!--            android:layout_below="@id/btntinhtoan"/>-->
+
+<!--        <SeekBar-->
+<!--            android:id="@+id/seekBar"-->
+<!--            android:layout_below="@+id/btntinhtoan"-->
+<!--            style="@style/Widget.AppCompat.SeekBar.Discrete"-->
+<!--            android:layout_width="400dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:max="50"-->
+<!--            android:progress="0" />-->
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bmi1"
+        android:background="#EFE8DA"
+        android:orientation="vertical"
+        android:weightSum="5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10">
+            <ImageView
+                android:id="@+id/bmilv1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bmilv1"
+                android:layout_weight="3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:textAlignment="center"
+                android:text="UNDERWEIGHT"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#93b4d7"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/bmilv2"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@drawable/bmilv2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:textAlignment="center"
+                android:text="NORMAL"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#8fc69f"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10">
+            <ImageView
+                android:id="@+id/bmilv3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bmilv3"
+                android:layout_weight="3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:textAlignment="center"
+                android:text="OVERWEIGHT"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#fad548" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/bmilv4"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@drawable/bmilv4" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:textAlignment="center"
+                android:text="OBESE"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#e7985f"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/bmilv5"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@drawable/bmilv5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:textAlignment="center"
+                android:text="EXTREMLY OBESY"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#d65c5a"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

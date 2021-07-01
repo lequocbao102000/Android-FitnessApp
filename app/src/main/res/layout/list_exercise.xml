@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:id="@+id/gif_exercise"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ten Bai Tap"
+        android:id="@+id/name_exercise"
+        android:layout_toRightOf="@id/gif_exercise"
+        android:layout_margin="5dp"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/level_exercise"
+        android:layout_toRightOf="@id/gif_exercise"
+        android:layout_below="@id/name_exercise"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffae00</color>
+    <color name="colorPrimaryDark">#A16E00</color>
+    <color name="colorAccent">#373737</color>
+
+    <color name="Black">#000000</color>
+    <color name="bminguoi1">#93b4d7</color>
+    <color name="bminguoi2">#8fc69f</color>
+    <color name="bminguoi3">#fad548</color>
+    <color name="bminguoi4">#e8975f</color>
+    <color name="bminguoi5">#d65c5a</color>
+</resources>
