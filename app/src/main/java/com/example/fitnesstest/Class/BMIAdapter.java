@@ -42,9 +42,9 @@ public class BMIAdapter extends ArrayAdapter<BMI> {
         BMI bmi=getItem(position);
 
         ImageView.setImageResource(bmi.getHinh());
-        textViewbmi.setText(String.valueOf(bmi.getBmi()));
-        textViewcao.setText(String.valueOf(bmi.getCao()));
-        textViewnang.setText(String.valueOf(bmi.getNang()));
+        textViewbmi.setText("BMI" + String.valueOf(bmi.getBmi()));
+        textViewcao.setText("-Chiều cao-\n "+String.valueOf(bmi.getCao())+" cm");
+        textViewnang.setText("-Cân nặng-\n"+String.valueOf(bmi.getNang())+" kg");
 
         return convertView;
     }
