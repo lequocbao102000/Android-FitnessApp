@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,9 +31,14 @@ import java.util.Calendar;
 public class Daily_BMIFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
     TextView txtdate;
     ListView listViewbmi;
+    ImageView previous,next;
     ArrayList<BMI> bmiArrayList;
     BMIAdapter bmiAdapter;
     DBHelper dbHelper;
+    Calendar calendar=Calendar.getInstance();
+    int monthnow = calendar.get(Calendar.MONTH)+1;
+    int daynow = calendar.get(Calendar.DAY_OF_MONTH);
+    int yearnow = calendar.get(Calendar.YEAR);
 
 
     @Override
@@ -55,9 +61,10 @@ public class Daily_BMIFragment extends Fragment implements DatePickerDialog.OnDa
 
         txtdate = view.findViewById(R.id.date);
         listViewbmi = view.findViewById(R.id.listdailybmi);
-        Calendar calendar=Calendar.getInstance();
-        int monthnow = calendar.get(Calendar.MONTH)+1;
-        txtdate.setText(calendar.get(Calendar.DAY_OF_MONTH)+"/"+monthnow+"/"+calendar.get(Calendar.YEAR));
+        previous = view.findViewById(R.id.previousdate);
+        next = view.findViewById(R.id.nextdate);
+
+        txtdate.setText(daynow+"/"+monthnow+"/"+yearnow);
 
         bmiArrayList=dbHelper.getDailyBMI(txtdate.getText().toString());
         bmiAdapter=new BMIAdapter(getContext(),bmiArrayList);
@@ -89,6 +96,20 @@ public class Daily_BMIFragment extends Fragment implements DatePickerDialog.OnDa
             }
         });
 
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtdate.setText(previousdate());
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtdate.setText(nextdate());
+            }
+        });
+
 
     }
 
@@ -104,8 +125,124 @@ public class Daily_BMIFragment extends Fragment implements DatePickerDialog.OnDa
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        int monthedit = month+1;
-        String date=dayOfMonth+ "/" +monthedit+ "/" + year;
+        monthnow = month+1;
+        daynow=dayOfMonth;
+        yearnow=year;
+        String date=daynow+ "/" +monthnow+ "/" + yearnow;
         txtdate.setText(date);
+    }
+
+    public String previousdate(){
+        switch (monthnow){
+            case 5: case 7: case 8: case 10: case 12: {
+                if (daynow > 1) {
+                    daynow = daynow - 1;
+                } else {
+                    daynow = 30;
+                    monthnow -= 1;
+                }
+                break;
+            }
+
+            case 2: case 4: case 6: case 9: case 11: {
+                if (daynow > 1) {
+                    daynow = daynow - 1;
+                } else {
+                    daynow = 31;
+                    monthnow -= 1;
+                }
+                break;
+            }
+
+            case 1: {
+                if (daynow > 1) {
+                    daynow = daynow - 1;
+                } else {
+                    daynow = 31;
+                    monthnow = 12;
+                    yearnow -= 1;
+                }
+                break;
+            }
+
+            case 3:{
+                if (yearnow%4==0){
+                    if (daynow>1){
+                        daynow-=1;
+                    }
+                    else {
+                        daynow=29;
+                        monthnow-=1;
+                    }
+                }
+                else{
+                    if (daynow>1){
+                        daynow-=1;
+                    }
+                    else {
+                        daynow=28;
+                        monthnow-=1;
+                    }
+                }
+                break;
+            }
+
+        }
+        return daynow+ "/" +monthnow+ "/" + yearnow;
+
+
+    }
+
+    public String nextdate() {
+        switch (monthnow){
+            case 1: case 3: case 5: case 7: case 8: case 10:{
+                if(daynow<=30)
+                    daynow+=1;
+                else {
+                    daynow=1;
+                    monthnow+=1;
+                }
+                break;
+            }
+            case 4: case 6: case 9: case 11:{
+                if (daynow<=29)
+                    daynow+=1;
+                else {
+                    daynow=1;
+                    monthnow+=1;
+                }
+                break;
+            }
+            case 12:{
+                if(daynow<=30)
+                    daynow+=1;
+                else {
+                    daynow=1;
+                    monthnow=1;
+                    yearnow+=1;
+                }
+                break;
+            }
+            case 2:{
+                if(yearnow%4==0){
+                    if (daynow<=28)
+                        daynow+=1;
+                    else {
+                        daynow=1;
+                        monthnow+=1;
+                    }
+                }
+                else {
+                    if(daynow<=27)
+                        daynow+=1;
+                    else {
+                        daynow=1;
+                        monthnow+=1;
+                    }
+                }
+                break;
+            }
+        }
+        return daynow+ "/" +monthnow+ "/" + yearnow;
     }
 }
