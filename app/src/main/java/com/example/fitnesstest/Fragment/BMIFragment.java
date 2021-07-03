@@ -1,6 +1,7 @@
 package com.example.fitnesstest.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -159,5 +160,6 @@ public class BMIFragment extends Fragment {
             }
         });
     }
+
 
 }

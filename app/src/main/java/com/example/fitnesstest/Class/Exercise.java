@@ -44,7 +44,11 @@ public class Exercise implements Serializable {
         this.level = level;
     }
 
-
+    public Exercise(String name, int gif, int level) {
+        this.name = name;
+        this.gif = gif;
+        this.level = level;
+    }
 
     public int getId() {
         return id;

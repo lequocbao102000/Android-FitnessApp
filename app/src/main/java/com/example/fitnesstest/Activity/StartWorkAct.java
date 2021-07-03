@@ -13,10 +13,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fitnesstest.Class.DBHelper;
 import com.example.fitnesstest.Class.Exercise;
 import com.example.fitnesstest.R;
 
+import java.util.Calendar;
 import java.util.Locale;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -29,6 +32,7 @@ public class StartWorkAct extends AppCompatActivity {
     LinearLayout fitone;
     ImageView imgTimer,level;
     Exercise exercise;
+    DBHelper dbHelper;
 
     private static final long START_TIME_IN_MILLIS = 50000;
     private CountDownTimer countDownTimer;
@@ -44,6 +48,10 @@ public class StartWorkAct extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("");
+        dbHelper = new DBHelper(this);
+        Calendar calendar=Calendar.getInstance();
+        int monthnow = calendar.get(Calendar.MONTH)+1;
+        final String datenow=calendar.get(Calendar.DAY_OF_MONTH)+"/"+monthnow+"/"+calendar.get(Calendar.YEAR);
 
         AnhXa();
         Intent intent=getIntent();
@@ -55,7 +63,7 @@ public class StartWorkAct extends AppCompatActivity {
 
         Animation();
 
-        startTimer();
+        startTimer(datenow,exercise.getName(),String.valueOf(exercise.getGif()),String.valueOf(exercise.getLevel()));
     }
 
     private void AnhXa() {
@@ -86,7 +94,7 @@ public class StartWorkAct extends AppCompatActivity {
         timerValue.startAnimation(alphago);
         imgTimer.startAnimation(alphago);
     }
-    private void startTimer(){
+    private void startTimer(final String date, final String name, final String gif, final String level){
         countDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -96,7 +104,8 @@ public class StartWorkAct extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                dbHelper.insertDailyEx(date, name, gif, level);
+                callToast();
             }
         }.start();
         mTimerRunning = true;
@@ -108,6 +117,11 @@ public class StartWorkAct extends AppCompatActivity {
 
         String timeLeft = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds) ;
         timerValue.setText(timeLeft);
+
+    }
+    private void callToast()
+    {
+        Toast.makeText(this,"Done Exercise !",Toast.LENGTH_SHORT).show();
     }
 
     @Override

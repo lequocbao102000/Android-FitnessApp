@@ -33,9 +33,11 @@ public class DBHelper {
         String sqlWorkout = "CREATE TABLE IF NOT EXISTS tblWorkout (" + " WorkoutID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + " Image TEXT," + " Name TEXT );";
         String sqlExercise = "CREATE TABLE IF NOT EXISTS tblExercise (" + " ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + " Name TEXT," + " Description TEXT," + " GIF TEXT,"+" Level TEXT," + " WorkoutID INTEGER );";
         String sqlDailyBMI = "CREATE TABLE IF NOT EXISTS tblDailybmi (" + " Date TEXT NOT NULL PRIMARY KEY," + " Cao FLOAT," + " Nang FLOAT,"+" BMI FLOAT,"+" Hinh TEXT );";
+        String sqlDailyEx = "CREATE TABLE IF NOT EXISTS tblDailyex (" + " Date TEXT NOT NULL," + " Name TEXT," + " GIF TEXT,"+" Level TEXT );";
         db.execSQL(sqlWorkout);
         db.execSQL(sqlExercise);
         db.execSQL(sqlDailyBMI);
+        db.execSQL(sqlDailyEx);
         closeDB(db);
     }
     public  void dropTable()
@@ -109,6 +111,25 @@ public class DBHelper {
         return arr;
     }
 
+    public ArrayList<Exercise> getDailyEX(String datechon){
+        SQLiteDatabase db = openDB();
+        ArrayList<Exercise> arr=new ArrayList<>();
+        Cursor csr=db.rawQuery("select * from tblDailyex where Date='"+datechon+"'",null);
+        if (csr != null) {
+            if (csr.moveToFirst()) {
+                do {
+                    String name = csr.getString(1);
+                    int gif = csr.getInt(2);
+                    int level = csr.getInt(3);
+                    arr.add(new Exercise(name, gif, level));
+                } while (csr.moveToNext());
+            }
+        }
+
+        closeDB(db);
+        return arr;
+    }
+
     public void insertWorkout(){
         ArrayList<Workout> arrWorkout =utils.getDataWorkout();
         SQLiteDatabase db = openDB();
@@ -151,6 +172,17 @@ public class DBHelper {
         cv.put("BMI",bmi);
         cv.put("Hinh",hinh);
         db.insert("tblDailybmi",null,cv);
+        closeDB(db);
+    }
+
+    public void insertDailyEx(String ngay,String name,String gif,String level){
+        SQLiteDatabase db=openDB();
+        ContentValues cv=new ContentValues();
+        cv.put("Date",ngay);
+        cv.put("Name",name);
+        cv.put("GIF",gif);
+        cv.put("Level",level);
+        db.insert("tblDailyex",null,cv);
         closeDB(db);
     }
 

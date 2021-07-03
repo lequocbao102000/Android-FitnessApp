@@ -11,14 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ten Bai Tap"
+        android:textStyle="bold"
         android:id="@+id/name_exercise"
         android:layout_toRightOf="@id/gif_exercise"
         android:layout_margin="5dp"/>
+    <TextView
+        android:id="@+id/textlevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level "
+        android:layout_toRightOf="@id/gif_exercise"
+        android:layout_below="@+id/name_exercise"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="italic"/>
     <ImageView
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:id="@+id/level_exercise"
-        android:layout_toRightOf="@id/gif_exercise"
+        android:layout_toRightOf="@id/textlevel"
         android:layout_below="@id/name_exercise"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="5dp"/>
