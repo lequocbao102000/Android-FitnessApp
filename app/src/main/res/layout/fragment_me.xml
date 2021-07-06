@@ -1,15 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.MeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/re_pesonal">
+
+            <ImageView
+                android:id="@+id/img_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:src="@drawable/account"
+                android:layout_marginTop="40dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txt_hello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_person"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:fontFamily="@font/archivo_black"
+                android:text="Hello, my friend"></TextView>
+
+            <Button
+                android:id="@+id/upload"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:layout_below="@id/txt_hello"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                style="?attr/materialButtonOutlinedStyle"
+                android:textColor="@color/design_default_color_background"
+                android:backgroundTint="@color/Black"
+                android:text="upload">
+            </Button>
+
+            <EditText
+                android:id="@+id/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upload"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/archivo_black"
+                android:gravity="left"
+                android:text="Settings">
+
+            </EditText>
+            <Button
+                android:id="@+id/languages"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/Black"
+                android:gravity="center"
+                android:text="language"
+                android:layout_below="@id/upload"
+                android:textColor="@color/design_default_color_background"></Button>
+            <EditText
+                android:id="@+id/support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/languages"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/archivo_black"
+                android:gravity="left"
+                android:text="Support Us"></EditText>
+            <Button
+                android:id="@+id/moreapps"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="@color/Black"
+                android:gravity="center"
+                android:text="more app"
+                android:layout_below="@id/support"
+                android:textColor="@color/design_default_color_background"
+                tools:ignore="OnClick"></Button>
+            <Button
+                android:id="@+id/rateus"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="@color/Black"
+                android:gravity="center"
+                android:text="rate us"
+                android:layout_below="@id/moreapps"
+                android:textColor="@color/design_default_color_background"
+                tools:ignore="OnClick"></Button>
+            <Button
+                android:id="@+id/feedback"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="@color/Black"
+                android:gravity="center"
+                android:text="feedback"
+                android:layout_below="@id/rateus"
+                android:textColor="@color/design_default_color_background"
+                tools:ignore="OnClick"></Button>
+            <Button
+                android:id="@+id/removeads"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="@color/Black"
+                android:gravity="center"
+                android:text="remove ads"
+                android:layout_below="@id/feedback"
+                android:textColor="@color/design_default_color_background"
+                tools:ignore="OnClick"></Button>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/txtversion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="bottom"
+            android:text="VERSION 1.0.0"
+            android:textAlignment="center"
+            android:textColor="@color/Black"
+            android:textSize="11sp"
+            app:fontFamily="@font/audiowide"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </RelativeLayout>
 
 </FrameLayout>

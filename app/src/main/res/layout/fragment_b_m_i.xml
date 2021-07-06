@@ -23,7 +23,7 @@
             android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/icheigh"
             android:inputType="number"
-            android:hint="Nhập chiều cao (cm)" />
+            android:hint=" Height(cm)" />
         <EditText
             android:layout_width="250dp"
             android:layout_height="60dp"
@@ -33,7 +33,7 @@
             android:layout_centerHorizontal="true"
             android:inputType="number"
             android:drawableLeft="@drawable/icweigh"
-            android:hint="Nhập cân nặng (kg)"/>
+            android:hint=" Weight(kg)"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="60dp"
@@ -50,7 +50,7 @@
             android:layout_toRightOf="@id/btnreset"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/Black"
-            android:text="Tính toán"
+            android:text="Calculate"
             android:textColor="@color/colorPrimary"/>
         <TextView
             android:id="@+id/lblketqua"

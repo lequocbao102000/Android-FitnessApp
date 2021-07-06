@@ -1,7 +1,10 @@
 package com.example.fitnesstest.Fragment;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +23,7 @@ import com.example.fitnesstest.R;
 public class MeFragment extends Fragment {
     DBHelper dbHelper;
 
+    //more app
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

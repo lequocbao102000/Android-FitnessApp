@@ -72,6 +72,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="6dp"
         android:lineSpacingExtra="5dp"
+        android:layout_marginRight="30dp"
         android:text="Noi dung sqllite"
         android:textColor="#3A3A3A"
         android:textSize="16sp"
