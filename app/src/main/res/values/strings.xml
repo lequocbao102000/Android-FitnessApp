@@ -8,4 +8,32 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="advice_underweight">- Eating at least 5 portions of a variety of fruit and vegetables every day.\n\n
+                                    - Basing meals on potatoes, bread, rice, pasta or other starchy carbohydrates.\n\n
+                                   - Having some dairy or dairy alternatives (such as soya drinks and yoghurts).\n\n
+                                    - Eating some beans, pulses, fish, eggs, meat and other protein.\n\n
+    </string>
+
+    <string name="advice_normal">- Fat-free and low-fat dairy products, such as low-fat yoghurt, cheese, and milk.\n\n
+                                  - Protein foods, such as lean meat, fish, poultry without skin, beans, and peas.\n\n
+                                  - Whole-grain foods, such as whole-wheat bread, oatmeal, and brown rice. ...\n\n
+                                  - Fresh fruits, canned, frozen, or dried.\n\n
+    </string>
+
+    <string name="advice_overweight">- Whole grains (whole wheat, steel cut oats, brown rice, quinoa)\n\n
+                                     - Vegetables (a colorful variety-not potatoes)\n\n
+                                     - Whole fruits (not fruit juices)\n\n
+                                     - Nuts, seeds, beans, and other healthful sources of protein (fish and poultry)\n\n
+    </string>
+
+    <string name="advice_obses">- Whole grains (whole wheat, steel cut oats, brown rice, quinoa)\n\n
+                                - Vegetables (a colorful variety-not potatoes)\n\n
+                                  -  Whole fruits (not fruit juices)\n\n
+                                   - Nuts, seeds, beans, and other healthful sources of protein (fish and poultry)\n\n
+    </string>
+
+    <string name="advice_extremlyobses">- Vegetables (a colorful variety-not potatoes)\n\n
+                                  -  Whole fruits (not fruit juices)\n\n
+                                   - Nuts, seeds, beans, and other healthful sources of protein (fish and poultry)\n\n
+    </string>
 </resources>

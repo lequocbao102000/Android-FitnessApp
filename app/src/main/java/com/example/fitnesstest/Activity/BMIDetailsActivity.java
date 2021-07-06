@@ -30,26 +30,31 @@ public class BMIDetailsActivity extends AppCompatActivity {
         if (bmilv==1){
             imgnguoi.setImageResource(R.drawable.bminguoi1);
             txtname.setText("UNDERWEIGHT");
+            txtcontent.setText(R.string.advice_underweight);
             txtname.setTextColor(Color.parseColor("#93b4d7"));
         }
         else if (bmilv==2){
             imgnguoi.setImageResource(R.drawable.bminguoi2);
             txtname.setText("NORMAL");
+            txtcontent.setText(R.string.advice_normal);
             txtname.setTextColor(Color.parseColor("#8fc69f"));
         }
         else if (bmilv==3){
             imgnguoi.setImageResource(R.drawable.bminguoi3);
             txtname.setText("OVERWEIGHT");
+            txtcontent.setText(R.string.advice_overweight);
             txtname.setTextColor(Color.parseColor("#fad548"));
         }
         else if (bmilv==4){
             imgnguoi.setImageResource(R.drawable.bminguoi4);
             txtname.setText("OBESE");
+            txtcontent.setText(R.string.advice_obses);
             txtname.setTextColor(Color.parseColor("#e8975f"));
         }
         else{
             imgnguoi.setImageResource(R.drawable.bminguoi5);
             txtname.setText("EXTREMLY OBESE");
+            txtcontent.setText(R.string.advice_extremlyobses);
             txtname.setTextColor(Color.parseColor("#d65c5a"));
         }
 
